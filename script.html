@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+
+<body>
+
+<script>
+    const myArray = ["Rock", "Paper", "Scissors"];
+
+function computerPlay() {
+  return myArray[~~(Math.random() * myArray.length)];
+}
+let playerSelection  = prompt("Pick between Rock,Paper and Scissors").toLowerCase()
+let computerSelection = computerPlay();
+alert( playRound(playerSelection,computerSelection))
+
+
+function playRound(playerSelection,computerSelection) {
+
+    if (playerSelection=="rock"&&computerSelection=="Rock"){
+        return ""
+    }
+    else if (playerSelection=="rock"&&computerSelection=="Paper"){
+        return "You Lose! Paper beats Rock"
+    }
+    else if (playerSelection=="rock"&&computerSelection=="Scissors"){
+        return "You Win! Rock beats Scissors"
+       }
+else if (playerSelection=="paper"&&computerSelection=="Paper"){
+        return ""       
+       }
+else if (playerSelection=="paper"&&computerSelection=="Scissors"){
+        return "You Lose! Scissors beat Paper"
+        }
+
+        else if (playerSelection=="paper"&&computerSelection=="Rock"){
+        return "You Win"
+        }
+
+        else if (playerSelection=="scissors"&&computerSelection=="Paper"){
+        return "You Win"
+        }
+
+        else if (playerSelection=="scissors"&&computerSelection=="Scissors"){
+        return ""
+        }
+        else if (playerSelection=="scissors"&&computerSelection=="Rock"){
+        return "You Lose"
+        }
+        else {
+            return "Pick a valid choice!"
+        }
+    }
+
+
+</script>
+
+</body>
+
+
+
+
+</html>
