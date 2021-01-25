@@ -9,6 +9,9 @@
 <script>
     let scoreUser= 0
     let scoreComputer= 0
+    let roundNumber= 1
+    let scoreArray= []
+
     const myArray = ["Rock", "Paper", "Scissors"];
 
 function computerPlay() {
@@ -25,65 +28,46 @@ alert( playRound(playerSelection,computerSelection))
 
 
 function playRound(playerSelection,computerSelection) {
+    if (
+        (playerSelection==='rock'&&computerSelection==='Scissors')||
+        (playerSelection==='paper'&&computerSelection==='Rock') ||
+        (playerSelection==='scissors'&&computerSelection==='Paper')&&
+        (scoreComputer<=5||scoreUser<=5)
+    )
+    {scoreUser++
+        roundNumber++
+        alert(`You Won, ${playerSelection} beats ${computerSelection}`)
 
-    if (playerSelection=="rock"&&computerSelection=="Rock"){
-        return ""
+         return scoreArray.push(`The current score is ${scoreUser} - ${scoreComputer}`)
+
     }
-    else if (playerSelection=="rock"&&computerSelection=="Paper"){
-        let s1="You Lose!"
-        return  s1
-    }
-    else if (playerSelection=="rock"&&computerSelection=="Scissors"){
-        let s2="You Win!"
-        return  s2
-       }
-else if (playerSelection=="paper"&&computerSelection=="Paper"){
-        return ""       
-       }
-else if (playerSelection=="paper"&&computerSelection=="Scissors"){
-    let s3="You Lose!"
-    return  s3
+    else if (
+        (playerSelection==="rock"&&computerSelection==="Paper")||
+        (playerSelection==="paper"&&computerSelection==="Scissors")||
+        (playerSelection==="scissors"&&computerSelection==="Rock")&&
+        (scoreComputer<=5||scoreUser<=5)
+        )
+        {
+            scoreComputer++
+            roundNumber++
+            alert (`You Lost,${computerSelectiom} beats ${userSelection}`)
+            return scoreArray.push(`The current score is ${scoreUser} - ${scoreComputer}`)
         }
-
-        else if (playerSelection=="paper"&&computerSelection=="Rock"){
-            let s4="You Win"
-            return s4
-        }
-
-        else if (playerSelection=="scissors"&&computerSelection=="Paper"){
-            let s5="You Win"
-            return s5
-        }
-
-        else if (playerSelection=="scissors"&&computerSelection=="Scissors"){
-        return ""
-        }
-        else if (playerSelection=="scissors"&&computerSelection=="Rock"){
-            let s6="You Lose"
-            return s6
-        }
-        else {
-            return "Pick a valid choice!"
-        }
+        else {alert ('It was a draw!')
     }
 
-    function game() {
-        if (s2=="You Win"||s4=="You Win"||s5=="You Win"){
+}
 
-            for (a=0;a<=5;a++){
-                return "Your score is "+ a +" and the computer score is "+ b+ "."
-            }
+    function game() { for (let i=0;scoreComputer<=5||scoreUser<=5;i++)
+        {
+            return playRound(playerSelection,computerSelection)
         }
-            else if (s1=="You Lose"||s3=="You Lose"||s6=="You Lose"){
-                for (b=0;b<=5;b++){
-                    return "The computer score is "+ b +" and your score is "+a+"."
-                }
-            }
-        }
+    }
+        
 
 </script>
 
-<button onclick="promptMe()">Start Game</button>
+<button onclick="promptMe()>Start Game</button>
 </body>
 
 
