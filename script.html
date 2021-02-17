@@ -4,70 +4,97 @@
     </head>
 
 <body>
+     <div id="container">
+<button id="paper">Paper</button>
+<button id="rock">Rock</button>
+<button id="scissors">Scissors</button>
+     </div>
     
 
 <script>
+   
+
     let scoreUser= 0
     let scoreComputer= 0
-    let roundNumber= 1
+     let roundNumber= 1
     let scoreArray= []
+    
+       
+    let myArray = Array("rock", "paper", "scissors");
 
-    const myArray = ["Rock", "Paper", "Scissors"];
+   
 
-function computerPlay() {
-  return myArray[~~(Math.random() * myArray.length)];
-}
-let  playerSelection
- function promptMe(){
-     playerSelection=prompt("Pick between Rock,Paper and Scissors").toLowerCase()
-alert(playerSelection)
-}
-let computerSelection = computerPlay();
-alert( playRound(playerSelection,computerSelection))
+let computerSelection =  myArray[Math.floor(Math.random() *myArray.length)];
+  
+  
+
+
 
 
 
 function playRound(playerSelection,computerSelection) {
     if (
-        (playerSelection==='rock'&&computerSelection==='Scissors')||
-        (playerSelection==='paper'&&computerSelection==='Rock') ||
-        (playerSelection==='scissors'&&computerSelection==='Paper')&&
-        (scoreComputer<=5||scoreUser<=5)
+        (playerSelection==='rock'&&computerSelection==='scissors')||
+        (playerSelection==='paper'&&computerSelection==='rock') ||
+        (playerSelection==='scissors'&&computerSelection==='paper')
     )
     {scoreUser++
         roundNumber++
-        alert(`You Won, ${playerSelection} beats ${computerSelection}`)
+       
+        
+        alert(`You Won, "${playerSelection}" beats "${computerSelection}"`)
 
-         return scoreArray.push(`The current score is ${scoreUser} - ${scoreComputer}`)
+         alert (`The current score is "${scoreUser}" x "${scoreComputer}"`)
+         
+
 
     }
     else if (
-        (playerSelection==="rock"&&computerSelection==="Paper")||
-        (playerSelection==="paper"&&computerSelection==="Scissors")||
-        (playerSelection==="scissors"&&computerSelection==="Rock")&&
-        (scoreComputer<=5||scoreUser<=5)
+        (playerSelection==="rock"&&computerSelection==="paper")||
+        (playerSelection==="paper"&&computerSelection==="scissors")||
+        (playerSelection==="scissors"&&computerSelection==="rock")
         )
         {
             scoreComputer++
             roundNumber++
-            alert (`You Lost,${computerSelectiom} beats ${userSelection}`)
-            return scoreArray.push(`The current score is ${scoreUser} - ${scoreComputer}`)
+            
+            
+            alert (`You Lost,"${computerSelection}" beats "${playerSelection}"`)
+            alert (`The current score is ${scoreUser} - ${scoreComputer}`)
+            
         }
         else {alert ('It was a draw!')
     }
 
 }
+const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {alert(button.id)
+            playerSelection=button.id
+            playRound(playerSelection,computerSelection)
 
-    function game() { for (let i=0;scoreComputer<=5||scoreUser<=5;i++)
-        {
-            return playRound(playerSelection,computerSelection)
-        }
-    }
-        
+            const container = document.querySelector('#container');
+
+const content = document.createElement('div');
+content.classList.add('content');
+content.textContent=`The current score is ${scoreUser} - ${scoreComputer}`
+container.appendChild(content);
+if (scoreUser>=5){
+    content.textContent=`The current score is ${scoreUser} - ${scoreComputer}, Your won, Congratulations!`
+    container.appendChild(content);
+}
+else if (computerScore>=5){
+content.textContent=`The current score is ${scoreUser} - ${scoreComputer}, Your lost, Try again!` 
+container.appendChild(content);  
+  };
+});
+})
+
+   
 
 </script>
 
-<button onclick="promptMe()>Start Game</button>
+
 </body>
 
 
