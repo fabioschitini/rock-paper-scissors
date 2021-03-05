@@ -4,34 +4,26 @@
     </head>
 
 <body>
-     <div id="container">
-<button id="paper">Paper</button>
-<button id="rock">Rock</button>
-<button id="scissors">Scissors</button>
-     </div>
     
+    <button class="rock">Rock</button>
+    <button class="paper">Paper</button>
+    <button class="scissors">Scissors</button>
+
+<div id="container"></div>
+
+</body>
 
 <script>
-   
-
     let scoreUser= 0
     let scoreComputer= 0
      let roundNumber= 1
     let scoreArray= []
+    let result;
     
-       
     let myArray = Array("rock", "paper", "scissors");
 
-   
-
-let computerSelection =  myArray[Math.floor(Math.random() *myArray.length)];
+function computerPlay() { return myArray[Math.floor(Math.random() *myArray.length)]};
   
-  
-
-
-
-
-
 function playRound(playerSelection,computerSelection) {
     if (
         (playerSelection==='rock'&&computerSelection==='scissors')||
@@ -40,14 +32,10 @@ function playRound(playerSelection,computerSelection) {
     )
     {scoreUser++
         roundNumber++
-       
-        
-        alert(`You Won, "${playerSelection}" beats "${computerSelection}"`)
+       result=`You Won, "${playerSelection}" beats "${computerSelection}"`
 
-         alert (`The current score is "${scoreUser}" x "${scoreComputer}"`)
          
-
-
+         
     }
     else if (
         (playerSelection==="rock"&&computerSelection==="paper")||
@@ -57,48 +45,42 @@ function playRound(playerSelection,computerSelection) {
         {
             scoreComputer++
             roundNumber++
-            
-            
-            alert (`You Lost,"${computerSelection}" beats "${playerSelection}"`)
-            alert (`The current score is ${scoreUser} - ${scoreComputer}`)
+            result=`You Lost,"${computerSelection}" beats "${playerSelection}"`
+           
             
         }
         else {alert ('It was a draw!')
     }
 
 }
-const buttons = document.querySelectorAll('button');
-    buttons.forEach((button) => {
-        button.addEventListener('click', () => {alert(button.id)
-            playerSelection=button.id
-            playRound(playerSelection,computerSelection)
+let btn=document.querySelectorAll("button")
 
-            const container = document.querySelector('#container');
+btn.forEach((btn) => {btn.addEventListener("click",function(e){
+    playRound(btn.classList.value,computerPlay())
+    const container = document.querySelector('#container');
 
 const content = document.createElement('div');
 content.classList.add('content');
-content.textContent=`The current score is ${scoreUser} - ${scoreComputer}`
+
+content.textContent=`${result},The current score is YouScore:${scoreUser} - ComputerScore:${scoreComputer}`
 container.appendChild(content);
 if (scoreUser>=5){
-    content.textContent=`The current score is ${scoreUser} - ${scoreComputer}, Your won, Congratulations!`
+    content.textContent=`${result},The current score is YouScore:${scoreUser} - ComputerScore:${scoreComputer}, Your won the game, Congratulations!`
     container.appendChild(content);
+    scoreUser=0
+    scoreComputer=0
 }
-else if (computerScore>=5){
-content.textContent=`The current score is ${scoreUser} - ${scoreComputer}, Your lost, Try again!` 
+else if (scoreComputer>=5){
+content.textContent=`${result},The current score is ${scoreUser} - ${scoreComputer}, Your lost the game, Try again!` 
 container.appendChild(content);  
+scoreUser=0
+    scoreComputer=0
   };
-});
+})
 })
 
-   
 
 </script>
-
-
-</body>
-
-
-
 
 </html>
 
