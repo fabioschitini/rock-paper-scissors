@@ -49,23 +49,25 @@ function playRound(playerSelection,computerSelection) {
            
             
         }
-        else {alert ('It was a draw!')
+        else {result='It was a draw!'
     }
 
 }
 let btn=document.querySelectorAll("button")
-
-btn.forEach((btn) => {btn.addEventListener("click",function(e){
-    playRound(btn.classList.value,computerPlay())
-    const container = document.querySelector('#container');
+const container = document.querySelector('#container');
 
 const content = document.createElement('div');
 content.classList.add('content');
 
-content.textContent=`${result},The current score is YouScore:${scoreUser} - ComputerScore:${scoreComputer}`
+
+btn.forEach((btn) => {btn.addEventListener("click",function(e){
+    playRound(btn.classList.value,computerPlay())
+    
+
+content.textContent=`${result} The current score is YouScore:${scoreUser} - ComputerScore:${scoreComputer}`
 container.appendChild(content);
 if (scoreUser>=5){
-    content.textContent=`${result},The current score is YouScore:${scoreUser} - ComputerScore:${scoreComputer}, Your won the game, Congratulations!`
+    content.textContent=`${result}The current score is YouScore:${scoreUser} - ComputerScore:${scoreComputer}, Your won the game, Congratulations!`
     container.appendChild(content);
     scoreUser=0
     scoreComputer=0
