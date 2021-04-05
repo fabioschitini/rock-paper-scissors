@@ -1,0 +1,73 @@
+body{ background-image: url("https://wallpapercave.com/wp/wp8121936.jpg");
+height: 1000px;}
+
+    
+   
+   
+
+.rock:hover{
+    box-shadow: 5px 10px;
+    border-color: teal;
+}
+.rock{
+    height: 200px;
+    width: 200px;
+    background-color: transparent;
+    position: relative;
+    top: 460px;
+    border-width: 10px;
+    left: 430px;
+    border-color: #607d8b;
+    outline: none;
+}
+.paper{ height: 230px;
+    width: 240px;
+    background-color: transparent;
+    position: relative;
+    top: 475px;
+    left:440px;
+    padding: 0;
+    border-width: 10px;
+    border-color: #5e805f;
+    outline: none;
+}
+.paper:hover{
+    box-shadow: 5px 10px;
+    border-color: teal;
+}
+.scissors:hover{
+    box-shadow: 5px 10px;
+    border-color: teal;
+}
+.scissors{
+    height: 220px;
+    width: 232px;
+    background-color: transparent;
+    position: relative;
+    top: 470px;
+    left:452px;
+    border-width: 10px;
+    border-color: #79364d;
+    outline: none;
+}
+.content{
+    position: relative;
+    top: 160px;
+    left: 500px;
+    font-size: 30px;
+    color: aliceblue;
+}
+.content1{
+    position: relative;
+    left: 500px;
+    font-size: 30px;
+    color: aliceblue;
+    bottom: -30px;
+}
+.content2{
+    position: relative;
+    left: 500px;
+    font-size: 30px;
+    color: aliceblue;
+    bottom: 100px;
+}
