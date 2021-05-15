@@ -16,9 +16,10 @@
     let myArray = Array("rock", "paper", "scissors");
 
    function promptMe(){
-  let  window.playerSelection=prompt("Pick between Rock,Paper and Scissors").toLowerCase()}
+    return  prompt("Pick between Rock,Paper and Scissors").toLowerCase()}
+    
 
-let computerSelection =  myArray[Math.floor(Math.random() *myArray.length)];
+function computerPlay() { return myArray[Math.floor(Math.random() *myArray.length)]};
   
   
 
@@ -26,7 +27,7 @@ let computerSelection =  myArray[Math.floor(Math.random() *myArray.length)];
 
 
 
-function playRound(promptMe,computerSelection) {
+function playRound(playerSelection,computerSelection) {
     if (
         (playerSelection==='rock'&&computerSelection==='scissors')||
         (playerSelection==='paper'&&computerSelection==='rock') ||
@@ -57,10 +58,15 @@ function playRound(promptMe,computerSelection) {
     }
 
 }
+function game(){
+    for (let i=0;i<5;i++){
+        playRound(promptMe(),computerPlay())
+    }
+}
 
 </script>
 
-<button onclick="promptMe();playRound(playerSelection,computerSelection)">Start Game</button>
+<button onclick="game()">Start Game</button>
 </body>
 
 

@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    </head>
-
-<body>
-    
-    <button class="rock">Rock</button>
-    <button class="paper">Paper</button>
-    <button class="scissors">Scissors</button>
-
-<div id="container"></div>
-
-</body>
-
-<script>
-    let scoreUser= 0
+let scoreUser= 0
     let scoreComputer= 0
      let roundNumber= 1
     let scoreArray= []
@@ -58,32 +42,40 @@ const container = document.querySelector('#container');
 
 const content = document.createElement('div');
 content.classList.add('content');
+const content1 = document.createElement('div');
+content1.classList.add('content1');
+const content2 = document.createElement('div');
+content2.classList.add('content2');
 
 
 btn.forEach((btn) => {btn.addEventListener("click",function(e){
     playRound(btn.classList.value,computerPlay())
-    
+    content2.textContent=``
+    container.appendChild(content2);
 
-content.textContent=`${result} The current score is YouScore:${scoreUser} - ComputerScore:${scoreComputer}`
+content.textContent=`${result}`
 container.appendChild(content);
+content1.textContent=` YouScore: ${scoreUser} - ComputerScore: ${scoreComputer}`
+container.appendChild(content1);
 if (scoreUser>=5){
-    content.textContent=`${result}The current score is YouScore:${scoreUser} - ComputerScore:${scoreComputer}, Your won the game, Congratulations!`
+    content.textContent=`${result}`
     container.appendChild(content);
+    content1.textContent=`YouScore: ${scoreUser} - ComputerScore: ${scoreComputer}`
+    container.appendChild(content1);
+    content2.textContent=`You won, Congratulations!`
+    container.appendChild(content2);
     scoreUser=0
     scoreComputer=0
 }
 else if (scoreComputer>=5){
-content.textContent=`${result},The current score is ${scoreUser} - ${scoreComputer}, Your lost the game, Try again!` 
-container.appendChild(content);  
+    content.textContent=`${result}`
+    container.appendChild(content);
+    content1.textContent=` YouScore: ${scoreUser} - ComputerScore: ${scoreComputer}`
+    container.appendChild(content1);
+    content2.textContent=`You lost, Try it again!`
+    container.appendChild(content2);
 scoreUser=0
     scoreComputer=0
   };
 })
 })
-
-
-</script>
-
-</html>
-
-
