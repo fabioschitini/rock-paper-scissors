@@ -1,4 +1,4 @@
-let scoreUser= 0
+ let scoreUser= 0
     let scoreComputer= 0
      let roundNumber= 1
     let scoreArray= []
@@ -76,6 +76,6 @@ else if (scoreComputer>=5){
     container.appendChild(content2);
 scoreUser=0
     scoreComputer=0
-  };
+  }
 })
 })
